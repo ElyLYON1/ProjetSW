@@ -1,18 +1,23 @@
-#include <iostream>
-#include <cassert>
-using namespace std;
+#include "Image.cpp"
 
-#include "Pixel.h"
-int main ()
-{
-    Pixel p1;
-    Pixel p2(25,55,127);
+int main() {
 
-    p1.AfficheStat();
-    p2.AfficheStat(); // test de doxygen , je cherche a verifier les constructeurs par copie et par défaut
+    Pixel rouge (120, 15, 10);
+    Pixel vert (20, 202, 15);
+    Pixel bleu (4, 58, 218);
 
-    p1.setgreen(20);
-    p1.AfficheStat();
+    Image image1 (64,48);
+    image1.effacer(bleu);
+    image1.dessinerRectangle(5, 20, 30, 40, rouge);
+    image1.setPix(51,4,vert);
+    image1.setPix(20,30,vert);
+    image1.sauver("./data/image1.ppm");
+
+    Image image2;
+    image2.ouvrir("./data/image1.ppm");
+    image2.dessinerRectangle(29, 10, 48, 15, rouge);
+    image2.dessinerRectangle(25, 24, 40, 45, vert);
+    image2.sauver("./data/image2.ppm");
 
     return 0;
 }
