@@ -1,7 +1,6 @@
 #include <iostream>
 #include <cassert>
-#ifndef _PIXEL_CPP
-#define _PIXEL_CPP
+
 #include "Pixel.h"
 
 Pixel::Pixel():r(0),g(0),b(0){}
@@ -55,7 +54,8 @@ void Pixel::AfficheStat()const
 
 
 }
-bool Pixel::operator ==(const Pixel &p)
+
+bool Pixel::operator ==(Pixel p)
 {
     return(r==p.r && g==p.g && b==p.b);
 
@@ -69,4 +69,3 @@ Pixel& Pixel:: operator=(const Pixel &p)
 
     return *this;
 }
-#endif // _PIXEL_CPP
